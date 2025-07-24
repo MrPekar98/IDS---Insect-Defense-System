@@ -17,4 +17,21 @@ It is especially important to use the same hardware, as the system implements a 
 Without these deadlines, we cannot guarantee that we can compute certain things and make physical actions in time.
 The hardware, such as the camera and Raspberry Pi, must make their respective computations within these deadlines, and therefore, these components cannot be easily replaced.
 
+- Raspberry Pi 3 Model B+
+
 ### Software
+- Ubuntu 22.04 (_this was the development platform, but IDS works on other Ubuntu versions or Linux distributions too_)
+- CMake 3.22 (`apt install cmake`)
+- OpenCV (`apt install libopencv-dev`)
+- C++ 20
+
+### Building Project
+From the project root, run the following commands.
+
+```bash
+mkdir build/
+cmake -B build/
+cmake --build build/ -j --target ids
+```
+
+You can now find the IDS executable in `build/ids`, which you can transfer to your Raspberry Pi (e.g. via SSH) and execute it.
